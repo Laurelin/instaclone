@@ -25,16 +25,14 @@
     "no-debugger": 0,
     "no-alert": 0,
     "no-unused-vars": 1,
+    "no-plusplus": "off",
     "prefer-const": [
       "error",
       {
         "destructuring": "all"
       }
     ],
-    "arrow-body-style": [
-      2,
-      "as-needed"
-    ],
+    "arrow-body-style": [2, "as-needed"],
     "no-unused-expressions": [
       2,
       {
@@ -69,10 +67,7 @@
     "react/jsx-filename-extension": [
       1,
       {
-        "extensions": [
-          ".js",
-          ".jsx"
-        ]
+        "extensions": [".js", ".jsx"]
       }
     ],
     "radix": 0,
@@ -88,6 +83,7 @@
     "prettier/prettier": [
       "error",
       {
+        "endOfLine": "auto",
         "trailingComma": "none",
         "singleQuote": true,
         "printWidth": 100
@@ -97,15 +93,9 @@
     "jsx-a11y/anchor-is-valid": [
       "warn",
       {
-        "aspects": [
-          "invalidHref"
-        ]
+        "aspects": ["invalidHref"]
       }
     ]
   },
-  "plugins": [
-    "prettier",
-    "react",
-    "react-hooks"
-  ]
+  "plugins": ["prettier", "react", "react-hooks"]
 }
