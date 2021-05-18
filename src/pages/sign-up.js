@@ -17,19 +17,22 @@ export default function SignUp() {
   const [error, setError] = useState('');
   const isInvalid = password === '' || emailAddress === '';
 
-  const handleLogin = async (event) => {
+  const handleSignUp = async (event) => {
     event.preventDefault();
     const usernameExists = await doesUsernameExist(username);
-    if (usernameExists.length) {
+    console.log('usernameExists', usernameExists);
+    if (!usernameExists) {
       try {
+        // authentication
         const createdUserResult = await firebase
           .auth()
-          .createUserWithEmailAndPassword(username, password);
+          .createUserWithEmailAndPassword(emailAddress, password);
 
         await createdUserResult.user.updateProfile({
           displayName: username
         });
 
+        // firebase, create a document in user collection
         await firebase
           .firestore()
           .collection('users')
@@ -38,9 +41,11 @@ export default function SignUp() {
             username: username.toLowerCase(),
             fullName,
             emailAddress: emailAddress.toLowerCase(),
-            following: ['rcIJJzAKsDQkiHSx9al4HuVZSmM2'],
+            following: ['rcIJJzAKsDQkiHSx9al4HuVZSmM2'], // auto-follows me
             dateCreated: Date.now()
           });
+
+        history.push(ROUTES.DASHBOARD);
       } catch (error) {
         setUsername('');
         setFullName('');
@@ -72,7 +77,7 @@ export default function SignUp() {
 
           {error && <p className="mb-4 text-xs text-red-primary">{error}</p>}
 
-          <form onSubmit={handleLogin} method="POST">
+          <form onSubmit={handleSignUp} method="POST">
             <input
               aria-label="Enter your username"
               type="text"

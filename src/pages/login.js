@@ -28,7 +28,7 @@ export default function Login() {
 
   useEffect(() => {
     document.title = 'Login - Instaclone';
-  }, []);
+  }, []); // runs on initial render, [] contains an indicator if it should be run again
 
   return (
     <div className="container flex mx-auto max-w-screen-md items-center h-screen">
@@ -48,14 +48,14 @@ export default function Login() {
               aria-label="Enter your Email Address"
               type="text"
               placeholder="Email Address"
-              className="text-s text-gray-base w-full mr-3 py-5 px-4 h-2 border border-gray-primary rounded mb-2"
+              className="text-sm text-gray-base w-full mr-3 py-5 px-4 h-2 border border-gray-primary rounded mb-2 "
               onChange={({ target }) => setEmailAddress(target.value)}
             />
             <input
               aria-label="Enter your Password"
               type="password"
               placeholder="Password"
-              className="text-s text-gray-base w-full mr-3 py-5 px-4 h-2 border border-gray-primary rounded mb-2"
+              className="text-sm text-gray-base w-full mr-3 py-5 px-4 h-2 border border-gray-primary rounded mb-2"
               onChange={({ target }) => setPassword(target.value)}
             />
             <button
