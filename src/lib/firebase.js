@@ -5,7 +5,7 @@ import 'firebase/firestore';
 import 'firebase/auth';
 
 const config = {
-  apiKey: 'AIzaSyCM96hJKsQbOfoqIDj5U3ZUJ6D9OQGx-4c',
+  apiKey: process.env.REACT_APP_API_KEY,
   authDomain: 'instaclone-1e48d.firebaseapp.com',
   projectId: 'instaclone-1e48d',
   storageBucket: 'instaclone-1e48d.appspot.com',
