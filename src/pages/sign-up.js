@@ -41,7 +41,7 @@ export default function SignUp() {
             username: username.toLowerCase(),
             fullName,
             emailAddress: emailAddress.toLowerCase(),
-            following: ['rcIJJzAKsDQkiHSx9al4HuVZSmM2'], // auto-follows me
+            following: ['Dn2sdSmo7JTcuE1wvcNbBPVNPUK2'], // auto-follows me
             dateCreated: Date.now()
           });
 
