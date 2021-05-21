@@ -1,5 +1,5 @@
 /** @format */
-import { useState, useContext, useEffect } from 'react';
+import { useState, useContext, useEffect, useRef } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import FirebaseContext from '../context/firebase';
 import * as ROUTES from '../constants/routes';
@@ -7,6 +7,7 @@ import { doesUsernameExist } from '../services/firebase';
 
 export default function SignUp() {
   const history = useHistory();
+  const inputRef = useRef();
   const { firebase } = useContext(FirebaseContext);
 
   const [username, setUsername] = useState('');
@@ -62,6 +63,7 @@ export default function SignUp() {
 
   useEffect(() => {
     document.title = 'Sign Up - Instaclone';
+    inputRef.current.focus();
   }, []);
 
   return (
@@ -79,6 +81,7 @@ export default function SignUp() {
 
           <form onSubmit={handleSignUp} method="POST">
             <input
+              ref={inputRef}
               aria-label="Enter your username"
               type="text"
               placeholder="Username"

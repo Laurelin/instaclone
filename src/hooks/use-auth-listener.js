@@ -8,7 +8,6 @@ export default function useAuthListener() {
   useEffect(() => {
     const listener = firebase.auth().onAuthStateChanged((authUser) => {
       // we have a user, therefore we can store the user in localstorage
-      console.log('authUser from the hook: ', authUser);
       if (authUser) {
         // login
         localStorage.setItem('authUser', JSON.stringify(authUser));
