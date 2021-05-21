@@ -1,5 +1,5 @@
 /** @format */
-import { useState, useContext, useEffect } from 'react';
+import { useState, useContext, useEffect, useRef } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import FirebaseContext from '../context/firebase';
 import * as ROUTES from '../constants/routes';
@@ -13,6 +13,8 @@ export default function Login() {
 
   const [error, setError] = useState('');
   const isInvalid = password === '' || emailAddress === '';
+
+  const inputRef = useRef();
 
   const handleLogin = async (event) => {
     event.preventDefault();
@@ -28,6 +30,7 @@ export default function Login() {
 
   useEffect(() => {
     document.title = 'Login - Instaclone';
+    inputRef.current.focus();
   }, []); // runs on initial render, [] contains an indicator if it should be run again
 
   return (
@@ -45,6 +48,7 @@ export default function Login() {
 
           <form onSubmit={handleLogin} method="POST">
             <input
+              ref={inputRef}
               aria-label="Enter your Email Address"
               type="text"
               placeholder="Email Address"
