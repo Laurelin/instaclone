@@ -9,22 +9,36 @@ export default function Header() {
   const { user } = useContext(UserContext);
 
   return (
-    <header className="h-16 bg-white border-b border-gray-primary mb-8 ">
+    <header className="h-16 bg-white dark:bg-black-backgroundlight border-b border-gray-primary dark:border-black-light mb-8 ">
       <div className="container mx-auto max-w-screen-lg h-full">
         <div className="flex justify-between h-full">
           <div className="text-gray-700 text-center flex items-center align-items cursor-pointer">
             <h1 className="flex justify-center w-full">
               <Link to={ROUTES.DASHBOARD} aria-label="Instaclone logo">
-                <img src="/images/logo.png" alt="Instaclone" className="mt-2 w-6/12" />
+                <picture>
+                  <source
+                    srcSet="/images/logoinverted.png"
+                    media="(prefers-color-scheme: dark)"
+                    alt="Instaclone"
+                    className="mt-2 w-6/12"
+                  />
+                  <source
+                    srcSet="/images/logo.png"
+                    media="(prefers-color-scheme: light)"
+                    alt="Instaclone"
+                    className="mt-2 w-6/12"
+                  />
+                  <img src="/images/logo.png" alt="Instaclone" className="mt-2 w-6/12" />
+                </picture>
               </Link>
             </h1>
           </div>
-          <div className="text-gray-700 text-center flex items-center align-items">
+          <div className="text-gray-700 dark:text-gray-secondary text-center flex items-center align-items">
             {user ? (
               <>
                 <Link to={ROUTES.DASHBOARD} aria-label="Dashboard">
                   <svg
-                    className="w-8 mr-6 text-black-light cursor-pointer"
+                    className="w-8 mr-6 text-black-light dark:text-gray-secondary cursor-pointer"
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
                     viewBox="0 0 24 24"
@@ -49,7 +63,7 @@ export default function Header() {
                   }}
                 >
                   <svg
-                    className="w-8 mr-6 text-black-light cursor-pointer"
+                    className="w-8 mr-6 text-black-light dark:text-gray-secondary cursor-pointer"
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
                     viewBox="0 0 24 24"

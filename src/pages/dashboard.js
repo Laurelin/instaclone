@@ -9,7 +9,7 @@ export default function Dashboard() {
   }, []);
 
   return (
-    <div className="bg-gray-background">
+    <div className="min-h-screen bg-gray-background dark:bg-black-background">
       <Header />
       <div className="grid">
         <Timeline />
