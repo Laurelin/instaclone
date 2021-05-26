@@ -23,12 +23,6 @@ export default function Header() {
                     alt="Instaclone"
                     className="mt-2 w-6/12"
                   />
-                  <source
-                    srcSet="/images/logo.png"
-                    media="(prefers-color-scheme: light)"
-                    alt="Instaclone"
-                    className="mt-2 w-6/12"
-                  />
                   <img src="/images/logo.png" alt="Instaclone" className="mt-2 w-6/12" />
                 </picture>
               </Link>
