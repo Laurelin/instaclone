@@ -49,12 +49,6 @@ export default function Login() {
                   alt="Instaclone"
                   className="mt-2 w-6/12 mb-4"
                 />
-                <source
-                  srcSet="/images/logo.png"
-                  media="(prefers-color-scheme:light)"
-                  alt="Instaclone"
-                  className="mt-2 w-6/12 mb-4"
-                />
                 <img src="/images/logo.png" alt="Instaclone" className="mt-2 w-6/12 mb-4" />
               </picture>
             </h1>
