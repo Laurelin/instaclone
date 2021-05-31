@@ -17,7 +17,6 @@ export default function useAuthListener() {
         localStorage.removeItem('authUser');
         setUser(null);
       }
-      console.log('User from the hook:', user);
     });
 
     return () => listener();

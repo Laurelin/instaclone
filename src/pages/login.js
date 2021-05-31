@@ -34,7 +34,7 @@ export default function Login() {
   }, []); // runs on initial render, [] contains an indicator if it should be run again
 
   return (
-    <body className="min-h-screen bg-gray-background dark:bg-black-background">
+    <div className="min-h-screen bg-gray-background dark:bg-black-background">
       <div className="container flex mx-auto max-w-screen-md items-center h-screen">
         <div className="flex w-3/5">
           <img src="/images/transparent-phone-with-profile.png" alt="iPhone with Instagram" />
@@ -91,6 +91,6 @@ export default function Login() {
           </div>
         </div>
       </div>
-    </body>
+    </div>
   );
 }
