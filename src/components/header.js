@@ -50,6 +50,7 @@ export default function Header() {
                 <button
                   type="button"
                   title="Log Out"
+                  aria-label="Log Out"
                   onClick={() => {
                     firebase.auth().signOut();
                     history.push(ROUTES.LOGIN);
@@ -87,7 +88,24 @@ export default function Header() {
                 </div>
               </>
             ) : (
-              <></>
+              <>
+                <Link to={ROUTES.LOGIN}>
+                  <button
+                    type="button"
+                    className="bg-blue-medium font-bold text-sm rounded text-white dark:text-gray-primary w-20 h-8 m-1"
+                  >
+                    Log In
+                  </button>
+                </Link>
+                <Link to={ROUTES.SIGN_UP}>
+                  <button
+                    type="button"
+                    className="font-bold text-sm rounded text-blue-medium w-20 h-8 m-1"
+                  >
+                    Sign Up
+                  </button>{' '}
+                </Link>
+              </>
             )}
           </div>
         </div>
