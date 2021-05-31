@@ -4,7 +4,7 @@ module.exports = {
   future: {
     removeDeprecatedGapUtilities: true
   },
-  darkMode: 'media',
+  darkMode: 'class',
   theme: {
     fill: (theme) => ({
       red: theme('colors.red.primary')
