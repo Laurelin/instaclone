@@ -31,7 +31,7 @@ export default function Login() {
   useEffect(() => {
     document.title = 'Login - Instaclone';
     inputRef.current.focus();
-  }, []); // runs on initial render, [] contains an indicator if it should be run again
+  }, []);
 
   return (
     <div className="min-h-screen bg-gray-background dark:bg-black-background">
