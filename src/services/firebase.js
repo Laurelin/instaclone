@@ -20,3 +20,39 @@ export async function getUserByUserId(userId) {
 
   return user;
 }
+
+export async function getSuggestedProfiles(userId, following) {
+  const result = await firebase.firestore().collection('users').limit(10).get();
+  return result.docs
+    .map((user) => ({ ...user.data(), docId: user.id }))
+    .filter((profile) => profile.userId !== userId && !following.includes(profile.userId));
+}
+
+export async function updateLoggedInUserFollowing(
+  loggedInUserDocId,
+  profileId,
+  isFollowingProfile
+) {
+  return firebase
+    .firestore()
+    .collection('users')
+    .doc(loggedInUserDocId)
+    .update({
+      following: isFollowingProfile
+        ? FieldValue.arrayRemove(profileId)
+        : FieldValue.arrayUnion(profileId)
+    });
+}
+export async function updateFollowedUserFollowers(
+  suggestedProfileDocID,
+  userId,
+  isFollowingProfile
+) {
+  return firebase
+    .firestore()
+    .collection('users')
+    .doc(suggestedProfileDocID)
+    .update({
+      followers: isFollowingProfile ? FieldValue.arrayRemove(userId) : FieldValue.arrayUnion(userId)
+    });
+}
