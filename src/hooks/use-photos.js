@@ -22,7 +22,7 @@ export default function usePhotos() {
     }
 
     getTimelinePhotos();
-  }, []);
+  }, [userId]);
 
   return { photos };
 }
