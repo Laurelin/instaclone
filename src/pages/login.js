@@ -34,7 +34,7 @@ export default function Login() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-gray-background dark:bg-black-background">
+    <div>
       <div className="container flex mx-auto max-w-screen-md items-center h-screen">
         <div className="flex w-3/5">
           <img src="/images/transparent-phone-with-profile.png" alt="iPhone with Instagram" />
